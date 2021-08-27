@@ -16,30 +16,32 @@
       <h1>
           Add New Task
       </h1>
+      <br>
 
     <form action="#">
         <label for="TaskName">Task Name:</label><br><br>
         <input type="text" id="TaskName" name="TaskName" placeholder="" pattern="[A-Za-z]{3}"><br><br>
+        </form>
         <br>
-      </form>
 
-      <form action="#">
+        <form action="#">
         <label for="TaskD">Task Description:</label><br><br>
-        <input type="text" id="TaskD" name="TaskD" placeholder="" pattern="[A-Za-z]{3}"><br><br>
-        <br>
-      </form>
+        <textarea type="text" id="TaskD" name="TaskD" cols="50" rows="5" placeholder="" pattern="[A-Za-z]{3}"></textarea></br></br>
+        </form>
 
-      <form action="#">
+        <form action="#">
         <label for="Assigned">Assigned To:</label><br><br>
         <input type="text" id="Assigned" name="Assigned" placeholder="" pattern="[A-Za-z]{3}"><br><br>
+        </form>
         <br>
-      </form>
 
-    <button type="button" class="btn btn-dark">Add Task</button>
+    <button type="button" class="btn btn-dark">Add Task</button><br><br>
 
-    <h4>
-        Due Date
-    </h4>
+    <form action="#">
+        <label for="DueDate">DueDate</label>
+        <br><br>
+        <input type="date" id="DueDate" name="DueDate">
+      </form><br><br>
 
     <h2>
         Tasks
