@@ -18,30 +18,36 @@
       </h1>
       <br>
 
-    <form action="#">
-        <label for="TaskName">Task Name:</label><br><br>
-        <input type="text" id="TaskName" name="TaskName" placeholder="" pattern="[A-Za-z]{3}"><br><br>
-        </form>
+    <form id="myForm" onsubmit="validFormFieldInput(event)">
+        <label for="newTaskNameInput">Task Name:</label><br><br>
+        <input type="text" id="newTaskNameInput" name="TaskName"><br><br>
+        <div id="myError" class="alert alert-warning collapse" role="alert">
+            Please fill out name
+          </div>
         <br>
-
-        <form action="#">
+ 
         <label for="TaskD">Task Description:</label><br><br>
-        <textarea type="text" id="TaskD" name="TaskD" cols="50" rows="5" placeholder="" pattern="[A-Za-z]{3}"></textarea></br></br>
-        </form>
+        <textarea type="text" id="newTaskDescriptionInput" name="TaskD" cols="50" rows="5" placeholder=""  required></textarea></br></br>
+        <div id="myError2" class="alert alert-warning collapse" role="alert">
+            A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+          </div>
 
-        <form action="#">
-        <label for="Assigned">Assigned To:</label><br><br>
-        <input type="text" id="Assigned" name="Assigned" placeholder="" pattern="[A-Za-z]{3}"><br><br>
-        </form>
+        <label for="newAssignedInput">Assigned To:</label><br><br>
+        <input type="text" id="newAssignedInput" name="Assigned" placeholder="" required><br><br>
+        <div id="myError" class="alert alert-warning collapse" role="alert">
+            A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+          </div>
         <br>
 
-    <form action="#">
         <label for="DueDate">DueDate</label>
         <br><br>
-        <input type="date" id="DueDate" name="DueDate">
-      </form><br><br>
-
-      <button type="button" class="btn btn-dark">Add Task</button><br><br>
+        <input type="date" id="newDueDateInput" name="DueDate" required>
+        <div id="myError" class="alert alert-warning collapse" role="alert">
+            A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+          </div>
+      <br><br>
+      <input type="submit" value="Submit"><br><br>
+    </form>
 
     <h2>
         Tasks
@@ -104,7 +110,7 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <div class="alignment">
-                  <h5 class="card-title" id="title">Task Name</h5>
+                  <h5 class="card-title" id="name">Task Name</h5>
                   <button type="button" class="btn btn-success">Status</button>
                 </div>
                   <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
@@ -121,7 +127,7 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <div class="alignment">
-                  <h5 class="card-title" id="title">Task Name</h5>
+                  <h5 class="card-title" id="name">Task Name</h5>
                   <button type="button" class="btn btn-success">Status</button>
                 </div>
                   <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
@@ -136,5 +142,6 @@
         </li>
       </ul>
 
+      <script src="index.js"></script>
 </body>
 </html>
