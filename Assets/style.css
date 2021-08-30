@@ -2,3 +2,13 @@
     font-size: 4em !important;
     font-family: "quicksand" Georgia, 'Times New Roman', Times, serif;
 }
+
+.alignment {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+background-color: #93E5AB !important;
+border: 0.1em solid #00241B !important;
+}
