@@ -1,5 +1,7 @@
-const task1 = new TaskManager();
-task1.addTask(name)
+let tasks = new TaskManager();
+
+// let taskHTML = createTaskHtml("hi","hi","hi","hi","hi")
+// console.log(taskHTML)
 
 const validFormFieldInput = (e) => {
 	e.preventDefault();
@@ -8,16 +10,21 @@ const validFormFieldInput = (e) => {
 	console.log("Task name:  " + name);
 
 	const newTaskDescriptionInput = document.querySelector("#newTaskDescriptionInput");
-	const Description = newTaskDescriptionInput.value;
-	console.log("Task Description:  " + Description);
+	const description = newTaskDescriptionInput.value;
+	console.log("Task Description:  " + description);
 
 	const newAssignedInput = document.querySelector("#Assigned");
-	const Assigned = newAssignedInput.value;
-	console.log("Assigned To:  " + Assigned);
+	const assigned = newAssignedInput.value;
+	console.log("Assigned To:  " + assigned);
 
 	const newDueDateInput = document.querySelector("#newDueDateInput");
-	const DueDate = newDueDateInput.value;
-	console.log("Due Dute:  " + DueDate);
+	const dueDate = newDueDateInput.value;
+	console.log("Due Dute:  " + dueDate);
+
+	tasks.addTask(name, description, assigned, dueDate);
+	tasks.render()
+
+	document.getElementById('myForm').reset()
 
 };
 
@@ -27,6 +34,7 @@ if (newTaskDescriptionInput.value === "") {
     document.getElementById("error").classList.add("show");
 }
 
-// Toss properties into div container from class object. Pull data from array?
+const markAsDoneButton = document.querySelector('tasksList');
+markAsDoneButton.addEventListener('click', (event => {
 
-document.createElement('div')
+}))
