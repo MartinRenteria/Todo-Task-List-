@@ -12,7 +12,6 @@
     <div class="jumbotron">
         <h1 class="tasks-list display-4 text-center">Tasks List</h1>
       </div>
-
       <h1>
           Add New Task
       </h1>
@@ -20,33 +19,26 @@
 
     <form id="myForm" onsubmit="validFormFieldInput(event)">
         <label for="newTaskNameInput">Task Name:</label><br><br>
-        <input type="text" id="newTaskNameInput" name="TaskName"><br><br>
-        <div id="myError" class="alert alert-warning collapse" role="alert">
-            Please fill out name
-          </div>
+        <input type="text" id="TaskName" name="newTaskNameInput" placeholder="" required><br><br>
         <br>
  
         <label for="TaskD">Task Description:</label><br><br>
         <textarea type="text" id="newTaskDescriptionInput" name="TaskD" cols="50" rows="5" placeholder=""  required></textarea></br></br>
-        <div id="myError2" class="alert alert-warning collapse" role="alert">
-            A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-          </div>
+
 
         <label for="newAssignedInput">Assigned To:</label><br><br>
-        <input type="text" id="newAssignedInput" name="Assigned" placeholder="" required><br><br>
-        <div id="myError" class="alert alert-warning collapse" role="alert">
-            A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-          </div>
+        <input type="text" id="Assigned" name="newAssignedInput" placeholder="" required><br><br>
+
         <br>
 
         <label for="DueDate">DueDate</label>
         <br><br>
         <input type="date" id="newDueDateInput" name="DueDate" required>
-        <div id="myError" class="alert alert-warning collapse" role="alert">
-            A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-          </div>
       <br><br>
-      <input type="submit" value="Submit"><br><br>
+      <button type="submit" value="Submit">Submit</button></><br><br>
+      <div id="error" class="alert alert-danger fade" role="alert">
+        A simple primary alert—check it out!
+      </div>
     </form>
 
     <h2>
@@ -54,6 +46,7 @@
     </h2>
 
     <button type="button" class="btn btn-warning">View Task</button>
+    <div>
     <ul class="list-group">
         <li class="list-group-item ">
             <div class="card" style="width: 18rem;">
@@ -67,7 +60,9 @@
                   <p class="card-text">Due Date: </p>
                   <div class="alignment">
                   <p class="card-text">Status </p>
+                  <div class="move">
                   <a href="#" class="btn btn-primary">Delete</a>
+                </div>
                 </div>
                 </div>
               </div>
@@ -141,7 +136,8 @@
               </div>
         </li>
       </ul>
-
-      <script src="index.js"></script>
+    </div>
+      <script src="./js/taskManager.js"></script>
+      <script src="./js/index.js"></script>
 </body>
 </html>
