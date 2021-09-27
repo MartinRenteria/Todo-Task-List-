@@ -35,25 +35,24 @@
         <br><br>
         <input type="date" id="newDueDateInput" name="DueDate" required>
       <br><br>
-      <button type="submit" value="Submit">Submit</button></><br><br>
-      <div id="error" class="alert alert-danger fade" role="alert">
-        A simple primary alert—check it out!
-      </div>
+      <button id="btn"  type="submit" value="Submit">Submit</button></><br><br>
     </form>
-
+<p id="error"><p/>
     <h2>
         Tasks
     </h2>
-
+<br>
     <button type="button" class="btn btn-warning">View Task</button>
+<br>
     <div>
-    <ul class="tasksList list-group">
+<br>
+    <ul id="tasksList" class="list-group">
         <li id="taskCard" class="list-group-item ">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <div class="alignment">
                   <h5 class="card-title" id="title">Task Name</h5>
-                  <button type="button" class="done-button btn btn-success">Mark as done</button>
+                  <button type="button" class="btn btn-success">Mark as done</button>
                 </div>
                   <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
                   <p class="card-text">Assigned Date: </p>

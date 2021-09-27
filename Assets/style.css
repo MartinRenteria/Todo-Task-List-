@@ -1,6 +1,5 @@
-.card-body {
-    width: 20em;
-    padding: 5em;
+div.card {
+    width: 25em !important;
 }
 
 .tasks-list {
