@@ -1,5 +1,8 @@
 let tasks = new TaskManager();
 
+tasks.load()
+tasks.render()
+
 const newTaskNameInput = document.querySelector("#TaskName");
 const newTaskDescriptionInput = document.querySelector("#newTaskDescriptionInput");
 const newAssignedInput = document.querySelector("#Assigned");
@@ -8,20 +11,13 @@ const newDueDateInput = document.querySelector("#newDueDateInput");
 const validFormFieldInput = (e) => {
 	e.preventDefault();
 	const name = newTaskNameInput.value;
-	console.log("Task name:  " + name);
-
 	const description = newTaskDescriptionInput.value;
-	console.log("Task Description:  " + description);
-
 	const assigned = newAssignedInput.value;
-	console.log("Assigned To:  " + assigned);
-
 	const dueDate = newDueDateInput.value;
-	console.log("Due Dute:  " + dueDate);
 
 	tasks.addTask(name, description, assigned, dueDate);
+	tasks.save();
 	tasks.render();
-	console.log(tasks)
 
 	document.getElementById("myForm").reset();
 };
@@ -30,11 +26,8 @@ const validFormFieldInput = (e) => {
 
 document.getElementById("btn").addEventListener("click", function() {
 	const name = newTaskNameInput.value;
-
 	const description = newTaskDescriptionInput.value;
-
 	const assigned = newAssignedInput.value;
-
 	const dueDate = newDueDateInput.value;
 
 	if (name === "") {
@@ -60,20 +53,23 @@ Please input the Due Date field!
 	}
 });
 
-// Event listerner for mark as done button. 
+// Event listerner for mark as done button.
 
-const markAsDoneButton = document.querySelector('#tasksList');
+const taskList = document.querySelector("#taskList");
 
+taskList.addEventListener("click", (event) => {
+	if (event.target.classList.contains("done-button")) {
+		let parentTask = event.target.parentNode.parentNode.parentNode.parentNode;
+        let taskId = parseInt(parentTask.getAttribute("data-task-id"));
+        let task = tasks.getTaskById(taskId);
+        task.status = 'Done';
 
-markAsDoneButton.addEventListener('click', (event) => {
-	console.log('Got it')
-	if (event.target.classList.contains('done-button')) {
+		if (task.status === 'Done') {
+            event.target.classList.remove('visible');
+            event.target.classList.add('invisible');
+        } 
 
-		let parentTask = event.target.parentNode.parentNode.parentNode.parentNode
-		console.log(parentTask)
-
+		tasks.render();
+        tasks.save();
 	}
 });
-
-
-
