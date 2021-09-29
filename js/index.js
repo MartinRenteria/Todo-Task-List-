@@ -22,14 +22,6 @@ const validFormFieldInput = (e) => {
 	document.getElementById("myForm").reset();
 };
 
-// if ( === "") {
-// 	let appear = document.getElementById('#appear');
-// 	appear.style.display = 'none'
-// } else {
-// 	appear.style.display = 'none'
-// }
-// Event listener for alert notification. Defines conditions for alert to appear
-
 document.getElementById("btn").addEventListener("click", function() {
 	const name = newTaskNameInput.value;
 	const description = newTaskDescriptionInput.value;

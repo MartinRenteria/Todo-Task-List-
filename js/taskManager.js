@@ -1,8 +1,8 @@
 const createTaskHtml = (name, description, assignedTo, dueDate, status, id) => {
-	let doneButtonVisibility = 'visible';
-    if (status === 'Done') {
-        doneButtonVisibility = 'invisible';
-    }
+	let doneButtonVisibility = "visible";
+	if (status === "Done") {
+		doneButtonVisibility = "invisible";
+	}
 
 	return `        <li id="taskCard" class="list-group-item" data-task-id = "${id}">
 	  <div class="card" style="width: 18rem;">
@@ -22,9 +22,8 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, id) => {
 		  </div>
 		</div>
 	  </div>
-</li>`
+</li>`;
 };
-
 
 class TaskManager {
 	constructor(tasks, currentId) {
@@ -50,10 +49,17 @@ class TaskManager {
 
 		// For of loop?
 		for (let task of this._tasks) {
-			// let currentTask = this._tasks;
-			// // let date =  new Date(currentTask.dueDate);
-			// // let formattedDate = date.toDateString();
-			const taskHtml = createTaskHtml(task.name, task.description, task.assignedTo, task.dueDate, task.status, task.id);
+			let date = new Date(task.dueDate);
+			let formattedDate = date.getMonth() + 1 + "/" + (date.getDate() + 1) + "/" + date.getFullYear();
+			const taskHtml = createTaskHtml(
+				task.name,
+				task.description,
+				task.assignedTo,
+				formattedDate,
+				task.status,
+				task.id
+			);
+
 			taskHtmlList.push(taskHtml);
 			const tasksHtml = taskHtmlList.join(""); // join("/n")
 			document.getElementById("taskList").innerHTML = tasksHtml;
@@ -61,51 +67,47 @@ class TaskManager {
 	}
 
 	getTaskById(taskId) {
-		let foundTask
+		let foundTask;
 
 		for (let task of this._tasks) {
 			if (task.id == taskId) {
-				foundTask = task
+				foundTask = task;
 			}
 		}
-		return foundTask
+		return foundTask;
 	}
 
 	save() {
 		const tasksJson = JSON.stringify(this._tasks);
-		localStorage.setItem('tasks', tasksJson);
-		
+		localStorage.setItem("tasks", tasksJson);
+
 		const currentId = this._currentId.toString();
-		localStorage.setItem('currentId', currentId);
+		localStorage.setItem("currentId", currentId);
 	}
 
 	load() {
+		if (localStorage.getItem("tasks")) {
+			let tasksJson = localStorage.getItem("tasks");
+			this._tasks = JSON.parse(tasksJson);
+		}
 
-        if (localStorage.getItem('tasks')) {
-            let tasksJson = localStorage.getItem('tasks');
-            this._tasks = JSON.parse(tasksJson);
-        } 
-
-        if(localStorage.getItem('currentId')) {
-            let currentId = localStorage.getItem('currentId');
-            this._currentId = parseInt(currentId);
-        }
-
+		if (localStorage.getItem("currentId")) {
+			let currentId = localStorage.getItem("currentId");
+			this._currentId = parseInt(currentId);
+		}
 	}
 
 	deleteTask(taskId) {
-		let newTasks = []
+		let newTasks = [];
 
-		for(let i = 0; i < this._tasks.length; i++) {
+		for (let i = 0; i < this._tasks.length; i++) {
 			let task = this._tasks[i];
 
 			if (task.id !== taskId) {
 				newTasks.push(task);
-				
 			}
 		}
 		this._tasks = newTasks;
-		document.getElementById('taskList').innerHTML = '';
+		document.getElementById("taskList").innerHTML = "";
 	}
-
 }

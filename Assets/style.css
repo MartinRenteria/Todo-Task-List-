@@ -1,5 +1,5 @@
 body {
-	background-color: #F2DFD7 !important;
+	background-color: #f2dfd7 !important;
 }
 
 .font {
@@ -17,11 +17,11 @@ input {
 }
 
 div.card {
-    width: 25em !important;
+	width: 25em !important;
 }
 
 .tasks-list {
-	background-color: #FEF9FF;
+	background-color: #fef9ff;
 	font-size: 3em !important;
 	font-family: 'Space Mono', monospace;
 }
@@ -32,13 +32,13 @@ div.card {
 }
 
 .btn {
-	background-color: #9F9FED !important;
+	background-color: #9f9fed !important;
 	border: 0.1em solid #00241b !important;
 }
 
 #taskCard {
 	border: none;
-	background-color: #D4C1EC;
+	background-color: #d4c1ec;
 }
 
 .card {
