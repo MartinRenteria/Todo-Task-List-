@@ -11,7 +11,7 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, id) => {
 		    <h5 class="card-title" id="title">Task Name: ${name}</h5>
 			<button type="button" class="btn btn-secondary btn done-button ${doneButtonVisibility}">Mark as done</button>
 			</div>
-		  <h6 class="card-subtitle mb-2 text-muted">Task Description: ${description}</h6>
+		  <h6 class="card-text">Task Description: ${description}</h6>
 		  <p class="card-text">Assigned Date: ${assignedTo}</p>
 		  <p class="card-text">Due Date: ${dueDate}</p>
 		  <div class="alignment">
@@ -56,7 +56,7 @@ class TaskManager {
 			const taskHtml = createTaskHtml(task.name, task.description, task.assignedTo, task.dueDate, task.status, task.id);
 			taskHtmlList.push(taskHtml);
 			const tasksHtml = taskHtmlList.join(""); // join("/n")
-			document.getElementById("taskCard").innerHTML = tasksHtml;
+			document.getElementById("taskList").innerHTML = tasksHtml;
 		}
 	}
 
@@ -105,6 +105,7 @@ class TaskManager {
 			}
 		}
 		this._tasks = newTasks;
+		document.getElementById('taskList').innerHTML = '';
 	}
 
 }
