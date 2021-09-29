@@ -1,7 +1,7 @@
 let tasks = new TaskManager();
 
-tasks.load()
-tasks.render()
+tasks.load();
+tasks.render();
 
 const newTaskNameInput = document.querySelector("#TaskName");
 const newTaskDescriptionInput = document.querySelector("#newTaskDescriptionInput");
@@ -16,12 +16,18 @@ const validFormFieldInput = (e) => {
 	const dueDate = newDueDateInput.value;
 
 	tasks.addTask(name, description, assigned, dueDate);
-	tasks.save();
 	tasks.render();
+	tasks.save();
 
 	document.getElementById("myForm").reset();
 };
 
+// if ( === "") {
+// 	let appear = document.getElementById('#appear');
+// 	appear.style.display = 'none'
+// } else {
+// 	appear.style.display = 'none'
+// }
 // Event listener for alert notification. Defines conditions for alert to appear
 
 document.getElementById("btn").addEventListener("click", function() {
@@ -40,16 +46,14 @@ document.getElementById("btn").addEventListener("click", function() {
   </div>`;
 	} else if (assigned === "") {
 		document.getElementById("error").innerHTML = `<div id="error" class="alert alert-primary" role="alert">
-	Please input assignedTo field!
+	Please input assigned field!
   </div>`;
 	} else if (dueDate === "") {
 		document.getElementById("error").innerHTML = `<div id="error" class="alert alert-primary" role="alert">
 Please input the Due Date field!
 </div>`;
 	} else {
-		document.getElementById("error").innerHTML = `<div id="error" class="alert alert-primary" role="alert">
-	Your task card been added!
-  </div>`;
+		document.getElementById("error").innerHTML = ``;
 	}
 });
 
@@ -60,6 +64,7 @@ const taskList = document.querySelector("#taskList");
 taskList.addEventListener("click", (event) => {
 	if (event.target.classList.contains("done-button")) {
 		let parentTask = event.target.parentNode.parentNode.parentNode.parentNode;
+		console.log(parentTask)
         let taskId = parseInt(parentTask.getAttribute("data-task-id"));
         let task = tasks.getTaskById(taskId);
         task.status = 'Done';
@@ -71,5 +76,15 @@ taskList.addEventListener("click", (event) => {
 
 		tasks.render();
         tasks.save();
+	}
+
+	if (event.target.classList.contains("delete-button")) {
+		let parentTask = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+		console.log(parentTask)
+		let taskId = parseInt(parentTask.getAttribute("data-task-id"));
+		tasks.deleteTask(taskId)
+		tasks.save()
+		tasks.render()
+
 	}
 });

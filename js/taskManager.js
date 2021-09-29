@@ -4,27 +4,20 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, id) => {
         doneButtonVisibility = 'invisible';
     }
 
-    let pillColor = 'btn-secondary';
-    if (status === 'ToDo') {
-        pillColor = 'btn-warning';
-    } else {
-        pillColor = 'btn-success';
-    }
-
-	return `        <li class="list-group-item" data-task-id = "${id}">
+	return `        <li id="taskCard" class="list-group-item" data-task-id = "${id}">
 	  <div class="card" style="width: 18rem;">
 		<div class="card-body" id="data-task-id">
 		  <div class="alignment">
 		    <h5 class="card-title" id="title">Task Name: ${name}</h5>
-			<button type="button" class="btn btn-secondary btn-sm done-button ${doneButtonVisibility}">Mark as done</button>
+			<button type="button" class="btn btn-secondary btn done-button ${doneButtonVisibility}">Mark as done</button>
 			</div>
 		  <h6 class="card-subtitle mb-2 text-muted">Task Description: ${description}</h6>
 		  <p class="card-text">Assigned Date: ${assignedTo}</p>
 		  <p class="card-text">Due Date: ${dueDate}</p>
 		  <div class="alignment">
-		  <span class="badge badge-pill ${pillColor} pull-right" id="green-status">Status: ${status}</span>
+		  <p class="card-text">Status: ${status}</p>
 		  <div class="move">
-		      <a href="#" class="btn btn-primary delete-button">Delete</a>
+		      <button type="button" class="btn btn-primary delete-button">Delete</button>
 		    </div>
 		  </div>
 		</div>
@@ -79,11 +72,11 @@ class TaskManager {
 	}
 
 	save() {
-	let taskJson = JSON.stringify(this._tasks)	
-	localStorage.setItem('tasks', taskJson)
-
-	let currentId = JSON.stringify(this._currentId)
-	localStorage.setItem('currentid', currentId)
+		const tasksJson = JSON.stringify(this._tasks);
+		localStorage.setItem('tasks', tasksJson);
+		
+		const currentId = this._currentId.toString();
+		localStorage.setItem('currentId', currentId);
 	}
 
 	load() {
@@ -100,8 +93,18 @@ class TaskManager {
 
 	}
 
-	deleteTask() {
-		let newTask = []
+	deleteTask(taskId) {
+		let newTasks = []
+
+		for(let i = 0; i < this._tasks.length; i++) {
+			let task = this._tasks[i];
+
+			if (task.id !== taskId) {
+				newTasks.push(task);
+				
+			}
+		}
+		this._tasks = newTasks;
 	}
 
 }

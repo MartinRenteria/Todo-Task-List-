@@ -1,10 +1,29 @@
+body {
+	background-color: #F2DFD7 !important;
+}
+
+.font {
+	font-family: 'Space Mono', monospace;
+}
+
+input {
+	display: inline-block;
+	justify-content: center;
+	width: 20em;
+}
+
+.none {
+	display: none;
+}
+
 div.card {
     width: 25em !important;
 }
 
 .tasks-list {
-	font-size: 4em !important;
-	font-family: "quicksand" Georgia, 'Times New Roman', Times, serif;
+	background-color: #FEF9FF;
+	font-size: 3em !important;
+	font-family: 'Space Mono', monospace;
 }
 
 .alignment {
@@ -13,6 +32,25 @@ div.card {
 }
 
 .btn {
-	background-color: #93e5ab !important;
+	background-color: #9F9FED !important;
 	border: 0.1em solid #00241b !important;
 }
+
+#taskCard {
+	border: none;
+	background-color: #D4C1EC;
+}
+
+.card {
+	border-radius: 30px !important;
+}
+
+#error {
+	width: 20em;
+}
+
+/* .form-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+} */
