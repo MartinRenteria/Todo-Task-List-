@@ -8,16 +8,16 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, id) => {
 	  <div class="card" style="width: 18rem;">
 		<div class="card-body" id="data-task-id">
 		  <div class="alignment">
-		    <h5 class="card-title" id="title">Task Name: ${name}</h5>
-			<button type="button" class="btn btn-secondary btn done-button ${doneButtonVisibility}">Mark as done</button>
+		    <p class="card-text" id="title">Task Name: ${name}</p>
+			<button type="button" class="finishDOM btn btn-secondary done-button ${doneButtonVisibility}">Mark as done</button>
 			</div>
-		  <h6 class="card-text">Task Description: ${description}</h6>
+		  <p class="card-text">Task Description: ${description}</p>
 		  <p class="card-text">Assigned Date: ${assignedTo}</p>
 		  <p class="card-text">Due Date: ${dueDate}</p>
 		  <div class="alignment">
 		  <p class="card-text">Status: ${status}</p>
 		  <div class="move">
-		      <button type="button" class="btn btn-primary delete-button">Delete</button>
+		      <button type="button" class="btn btn-danger delete-button">Delete</button>
 		    </div>
 		  </div>
 		</div>
@@ -108,6 +108,7 @@ class TaskManager {
 			}
 		}
 		this._tasks = newTasks;
-		document.getElementById("taskList").innerHTML = "";
 	}
 }
+
+exports.TaskManager = TaskManager;

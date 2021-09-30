@@ -1,0 +1,28 @@
+{
+  "name": "todo-task-list-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.3.4"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinRenteria/Todo-Task-List-.git"
+  },
+  "author": "Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartinRenteria/Todo-Task-List-/issues"
+  },
+  "homepage": "https://github.com/MartinRenteria/Todo-Task-List-#readme"
+}

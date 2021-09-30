@@ -1,15 +1,36 @@
+* {
+	font-family: 'Space Mono', monospace;
+}
+
 body {
 	background-color: #f2dfd7 !important;
 }
 
 .font {
-	font-family: 'Space Mono', monospace;
+	font-size: 1.5em;
 }
 
-input {
-	display: inline-block;
-	justify-content: center;
+.nameInput {
+	width: 90em;
+	height: 3em;
+}
+
+input#Assigned {
+	height: 3em;
 	width: 20em;
+}
+
+input#newDueDateInput {
+	width: 30em;
+	height: 3em;
+}
+
+.assignedDate {
+	display: flex;
+}
+
+#myForm {
+	margin-left: 2em;
 }
 
 .none {
@@ -31,7 +52,13 @@ div.card {
 	justify-content: space-between;
 }
 
-.btn {
+.finish {
+	background-color: #9f9fed !important;
+	border: 0.1em solid #00241b !important;
+	width: 90em;
+}
+
+.finishDOM {
 	background-color: #9f9fed !important;
 	border: 0.1em solid #00241b !important;
 }
