@@ -60,7 +60,7 @@ div.card {
 	justify-content: space-between;
 }
 
-tasks-list {
+.tasks-list {
 	background-color: #fef9ff;
 	font-size: 3em !important;
 }
