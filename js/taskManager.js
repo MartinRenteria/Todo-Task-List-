@@ -5,20 +5,18 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, id) => {
 	}
 
 	return `        <li id="taskCard" class="list-group-item" data-task-id = "${id}">
-	  <div class="card" style="width: 18rem;">
 		<div class="card-body" id="data-task-id">
 		  <div class="alignment">
-		    <p class="card-text" id="title">Task Name: ${name}</p>
-			<button type="button" class="finishDOM btn btn-secondary done-button ${doneButtonVisibility}">Mark as done</button>
+		    <p class="card-text" id="title"><span class="fw-bold">Task Name:</span> ${name}</p>
+			<button type="button" class="markDOM btn btn-secondary done-button ${doneButtonVisibility}">Mark as done</button>
 			</div>
-		  <p class="card-text">Task Description: ${description}</p>
-		  <p class="card-text">Assigned Date: ${assignedTo}</p>
-		  <p class="card-text">Due Date: ${dueDate}</p>
+		  <p class="card-text"><span class="fw-bold">Task Description:</span> ${description}</p>
+		  <p class="card-text"><span class="fw-bold">Assigned Date:</span> ${assignedTo}</p>
+		  <p class="card-text"><span class="fw-bold">Due Date:</span> ${dueDate}</p>
 		  <div class="alignment">
-		  <p class="card-text">Status: ${status}</p>
+		  <p class="card-text"><span class="fw-bold">Status:</span> ${status}</p>
 		  <div class="move">
 		      <button type="button" class="btn btn-danger delete-button">Delete</button>
-		    </div>
 		  </div>
 		</div>
 	  </div>

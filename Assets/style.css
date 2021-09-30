@@ -11,44 +11,48 @@ body {
 }
 
 .font {
-	font-size: 1.5em;
+	font-size: 1.3em;
+}
+
+.fontTask {
+	font-size: 2em;
+}
+
+.taskFont {
+	font-size: 1em;
 }
 
 .nameInput {
-	width: 90em;
+	width: 75%;
+	max-width: 90em;
 	height: 3em;
 }
 
-input#Assigned {
-	height: 3em;
-	width: 20em;
+textarea {
+	width: 75%;
 }
 
-input#newDueDateInput {
-	width: 30em;
+#Assigned {
 	height: 3em;
+	width: 100%;
 }
 
-.assignedDate {
-	display: flex;
+#newDueDateInput {
+	width: 100%;
+	height: 3em;
 }
 
 #myForm {
 	margin-left: 2em;
 }
 
-.none {
-	display: none;
+div.row {
+	display: flex;
+	width: 100%;
 }
 
 div.card {
 	width: 25em !important;
-}
-
-.tasks-list {
-	background-color: #fef9ff;
-	font-size: 3em !important;
-	font-family: 'Space Mono', monospace;
 }
 
 .alignment {
@@ -56,24 +60,46 @@ div.card {
 	justify-content: space-between;
 }
 
-.finish {
-	background-color: #9f9fed !important;
-	border: 0.1em solid #00241b !important;
-	width: 90em;
+tasks-list {
+	background-color: #fef9ff;
+	font-size: 3em !important;
 }
 
-.finishDOM {
+
+.addBtn {
 	background-color: #9f9fed !important;
 	border: 0.1em solid #00241b !important;
+	width: 90%;
+	max-width: 90vw;
+}
+
+button.markDOM {
+	background-color: #9f9fed !important;
+	border: 0.1em solid #00241b !important;
+	font-size: 0.6em;
+	word-break: break-word;
+	max-width: 10em;
+}
+
+.delete-button {
+	word-break: break-word;
+	min-width: 6em;
+}
+
+#taskList {
+	display: flex;
+	align-items: center;
+	background-color: #d4c1ec;
+	width: 100%;
 }
 
 #taskCard {
-	border: none;
-	background-color: #d4c1ec;
-}
-
-.card {
+	background-color: white;
 	border-radius: 30px !important;
+	width: 80%;
+	max-width: 30em;
+	height: auto;
+	margin: 3em 3em;
 }
 
 #error {
@@ -87,3 +113,4 @@ div.card {
 	text-align: center;
 	background-color: #736CED;
 }
+
