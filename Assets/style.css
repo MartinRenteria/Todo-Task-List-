@@ -77,9 +77,9 @@ div.card {
 button.markDOM {
 	background-color: #9f9fed !important;
 	border: 0.1em solid #00241b !important;
-	font-size: 0.6em;
+	font-size: 0.8em;
 	word-break: break-word;
-	max-width: 10em;
+	max-width: 9em;
 }
 
 .delete-button {
